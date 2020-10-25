@@ -149,7 +149,7 @@ function OrdersController($scope, $rootScope, $http, OfficeSystemDataFactory, Mo
     $scope.selectedFilterOption = undefined;
     $scope.selectedFilter = undefined;
     const statusFilter = (order) => order.statusId === parseInt($scope.filteredStatusId) || $scope.filteredStatusId == "";
-    const customerNameFilter = (order) => OfficeSystemDataFactory.getCustomerNameById(order.customerId).includes($scope.filteredCustomerName)
+    const customerNameFilter = (order) => OfficeSystemDataFactory.getCustomerNameById(order.customerId).startsWith($scope.filteredCustomerName)
         || $scope.filteredCustomerName == "";
     $scope.updateFilter = () => {
         if ($scope.selectedFilterOption === "status") {

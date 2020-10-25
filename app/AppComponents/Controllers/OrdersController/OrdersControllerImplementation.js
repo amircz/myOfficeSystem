@@ -103,14 +103,22 @@ function OrdersController($scope, $rootScope, $http, OfficeSystemDataFactory, Mo
     }
 
     $scope.getOrderDetailsForTable = (order) => [order.id, order.date, OfficeSystemDataFactory.getStatusNameById(order.statusId), getCustomerNameById(order.customerId), getOrderValueById(order.id)];
-
     const defaultComparator = (firstNum, secondNum) => firstNum >= secondNum ? 1 : -1;
+
+    const calculateDifferenceBetweenParameters = (firstParam, secondParam) => firstParam - secondParam;
+
     const datesComparator = (dateOne, dateTwo) => {
-        const splittedDateOne = dateOne.value.split("/");
-        const splittedDateTwo = dateTwo.value.split("/");
-        return (splittedDateOne[2] > splittedDateTwo[2] ? 1 : splittedDateOne[2] < splittedDateTwo[2] ? -1
-                : splittedDateOne[1] > splittedDateTwo[1] ? 1 : splittedDateOne[1] < splittedDateTwo[1] ? -1
-                    : splittedDateOne[0] > splittedDateTwo[0] ? 1 : splittedDateOne[0] < splittedDateTwo[0] ? -1 : 1
+        const YEAR_INDEX = 0, MONTH_INDEX = 1, DAY_INDEX = 2;
+        const splitDateOne = dateOne.value.split("/");
+        const splitDateTwo = dateTwo.value.split("/");
+
+        const yearsDifference = calculateDifferenceBetweenParameters(splitDateOne[YEAR_INDEX], splitDateTwo[YEAR_INDEX]);
+        const daysDifference = calculateDifferenceBetweenParameters(splitDateOne[DAY_INDEX], splitDateTwo[DAY_INDEX]);
+        const monthsDifference = calculateDifferenceBetweenParameters(splitDateOne[MONTH_INDEX], splitDateTwo[MONTH_INDEX]);
+
+        return (yearsDifference > 1 ? 1 : yearsDifference < 1 ? -1
+                : daysDifference > 1 ? 1 : daysDifference < 1 ? -1
+                    : monthsDifference > 1 ? 1 : monthsDifference < 1 ? -1 : 1
         )
     }
 
@@ -141,7 +149,7 @@ function OrdersController($scope, $rootScope, $http, OfficeSystemDataFactory, Mo
     $scope.selectedFilterOption = undefined;
     $scope.selectedFilter = undefined;
     const statusFilter = (order) => order.statusId === parseInt($scope.filteredStatusId) || $scope.filteredStatusId == "";
-    const customerNameFilter = (order) => OfficeSystemDataFactory.getCustomerNameById(order.customerId) === $scope.filteredCustomerName
+    const customerNameFilter = (order) => OfficeSystemDataFactory.getCustomerNameById(order.customerId).includes($scope.filteredCustomerName)
         || $scope.filteredCustomerName == "";
     $scope.updateFilter = () => {
         if ($scope.selectedFilterOption === "status") {

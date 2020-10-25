@@ -2,30 +2,30 @@
     <div class="modal-header">
         <h3 class="modal-title" id="modal-title">פרטי הזמנה</h3>
     </div>
-    <div ng-dblclick="$ctrl.cancelEdit()" class="modal-body" id="modal-body">
+    <div ng-dblclick="$ctrl.disableEditModeForAll()" class="modal-body" id="modal-body">
         <ul>
             <li ng-repeat="property in ['מס הזמנה: '+$ctrl.order.id,'שווי: '+$ctrl.orderValue]">
                 {{property}}
             </li>
             <li>
                 <span class="labelStyle"> תאריך: </span>
-                <span id="editableDate" ng-dblclick="$ctrl.handleClickEditable('d',$event)"
+                <span id="editableDate" ng-dblclick="$ctrl.handleClickEditable('date',$event)"
                       ng-show="!$ctrl.dateIsOnEdit"
                       ng-bind="$ctrl.order.date"></span>
                 <input ng-model="$ctrl.orderDateObject" id="dateInput" type="date" ng-show="$ctrl.dateIsOnEdit">
             </li>
             <li>
                 <span class="labelStyle">מצב:</span>
-                <span ng-show="!$ctrl.statusIsOnEdit" ng-dblclick="$ctrl.handleClickEditable('s',$event)"
+                <span ng-show="!$ctrl.statusIsOnEdit" ng-dblclick="$ctrl.handleClickEditable('status',$event)"
                       ng-bind="$ctrl.orderStatusName"></span>
-                <select ng-show="$ctrl.statusIsOnEdit" class="form-control ModalSelect"
+                <select ng-show="$ctrl.statusIsOnEdit" class="form-control"
                         ng-model="$ctrl.selectedStatusId">
                     <option ng-repeat="status in $ctrl.allStatuses" value="{{status.id}}">{{status.name}}</option>
                 </select>
             </li>
             <li>
                 לקוח:
-                <span ng-show="!$ctrl.customerIsOnEdit" ng-dblclick="$ctrl.handleClickEditable('c',$event)"
+                <span ng-show="!$ctrl.customerIsOnEdit" ng-dblclick="$ctrl.handleClickEditable('customer',$event)"
                       ng-bind="$ctrl.orderCustomerName"></span>
                 <select ng-show="$ctrl.customerIsOnEdit" class="form-control ModalSelect"
                         ng-model="$ctrl.selectedCustomerId">
@@ -37,7 +37,7 @@
                     ng-click="$ctrl.applyOrderChanges()">אישור
             </button>
             <button ng-show="$ctrl.statusIsOnEdit||$ctrl.dateIsOnEdit||$ctrl.customerIsOnEdit" class="btn-primary"
-                    ng-click="$ctrl.cancelEdit()">ביטול
+                    ng-click="$ctrl.disableEditModeForAll()">ביטול
             </button>
             <br>
             <order-products-details></order-products-details>

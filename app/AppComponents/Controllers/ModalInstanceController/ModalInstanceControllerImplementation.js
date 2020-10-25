@@ -46,13 +46,17 @@ function ModalInstanceController(OfficeSystemDataFactory, $uibModalInstance, ite
 
     $ctrl.handleClickEditable = (type, $event) => {
         $event.stopPropagation();
-        if (type === 'd') {
+        if (type === 'date') {
             $ctrl.setValuesToIsOnEditVars(true, false, false);
-        } else if (type === 's') {
+        } else if (type === 'status') {
             $ctrl.setValuesToIsOnEditVars(false, true, false);
-        } else if (type === 'c') {
+        } else if (type === 'customer') {
             $ctrl.setValuesToIsOnEditVars(false, false, true);
         }
+    }
+
+    $ctrl.disableEditModeForAll = () => {
+        $ctrl.setValuesToIsOnEditVars(false, false, false);
     }
 
     $ctrl.applyOrderChanges = () => {
@@ -60,9 +64,6 @@ function ModalInstanceController(OfficeSystemDataFactory, $uibModalInstance, ite
         $ctrl.order.statusId = parseInt($ctrl.selectedStatusId);
         $ctrl.order.customerId = parseInt($ctrl.selectedCustomerId);
         OfficeSystemDataFactory.updateOrderDetailsInDB($ctrl.order);
-        $ctrl.setValuesToIsOnEditVars(false, false, false);
-    }
-    $ctrl.cancelEdit = () => {
-        $ctrl.setValuesToIsOnEditVars(false, false, false);
+        $ctrl.disableEditModeForAll();
     }
 }

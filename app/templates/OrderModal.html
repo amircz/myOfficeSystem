@@ -1,0 +1,49 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">פרטי הזמנה</h3>
+    </div>
+    <div ng-dblclick="$ctrl.cancelEdit()" class="modal-body" id="modal-body">
+        <ul>
+            <li ng-repeat="property in ['מס הזמנה: '+$ctrl.order.id,'שווי: '+$ctrl.orderValue]">
+                {{property}}
+            </li>
+            <li>
+                <span class="labelStyle"> תאריך: </span>
+                <span id="editableDate" ng-dblclick="$ctrl.handleClickEditable('d',$event)"
+                      ng-show="!$ctrl.dateIsOnEdit"
+                      ng-bind="$ctrl.order.date"></span>
+                <input ng-model="$ctrl.orderDateObject" id="dateInput" type="date" ng-show="$ctrl.dateIsOnEdit">
+            </li>
+            <li>
+                <span class="labelStyle">מצב:</span>
+                <span ng-show="!$ctrl.statusIsOnEdit" ng-dblclick="$ctrl.handleClickEditable('s',$event)"
+                      ng-bind="$ctrl.orderStatusName"></span>
+                <select ng-show="$ctrl.statusIsOnEdit" class="form-control ModalSelect"
+                        ng-model="$ctrl.selectedStatusId">
+                    <option ng-repeat="status in $ctrl.allStatuses" value="{{status.id}}">{{status.name}}</option>
+                </select>
+            </li>
+            <li>
+                לקוח:
+                <span ng-show="!$ctrl.customerIsOnEdit" ng-dblclick="$ctrl.handleClickEditable('c',$event)"
+                      ng-bind="$ctrl.orderCustomerName"></span>
+                <select ng-show="$ctrl.customerIsOnEdit" class="form-control ModalSelect"
+                        ng-model="$ctrl.selectedCustomerId">
+                    <option ng-repeat="customer in $ctrl.allCustomers" value="{{customer.id}}">{{customer.name}}
+                    </option>
+                </select>
+            </li>
+            <button ng-show="$ctrl.statusIsOnEdit||$ctrl.dateIsOnEdit||$ctrl.customerIsOnEdit" class="btn-primary"
+                    ng-click="$ctrl.applyOrderChanges()">אישור
+            </button>
+            <button ng-show="$ctrl.statusIsOnEdit||$ctrl.dateIsOnEdit||$ctrl.customerIsOnEdit" class="btn-primary"
+                    ng-click="$ctrl.cancelEdit()">ביטול
+            </button>
+            <br>
+            <order-products-details></order-products-details>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button id="cancelBtn" class="btn btn-primary" type="button" ng-click="$ctrl.cancel()">סגור</button>
+    </div>
+</div>

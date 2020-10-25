@@ -1,0 +1,19 @@
+<div>
+    <div ng-controller="ModalCtrl as $ModalCtrl">
+        <div ng-controller="OrdersController" id="ordersTable">
+            <sorts-and-filters></sorts-and-filters>
+            <div class="container table" id="mainTable">
+                <table-heads></table-heads>
+
+                <order-row
+                        ng-repeat="order in orders |filter:selectedFilter|filter:isOrderInCurrentPageFilter|orderBy: orderByParameter:false:selectedComparator"
+                        order="order" order-index="{{getOrderIndex(order)}}"
+                        order-data="ordersDetailsForTable[getOrderIndex(order)]"></order-row>
+                <new-row></new-row>
+            </div>
+            <button class="toggleBtn addBtn {{plusBtnClassName}}" ng-click="onClickPlus()"><span>{{newRowBtnTxt}}</span>
+            </button>
+            <pages-number-bar ng-show="createPagesNumberArrayForRepeat().length!=0"></pages-number-bar>
+        </div>
+    </div>
+</div>

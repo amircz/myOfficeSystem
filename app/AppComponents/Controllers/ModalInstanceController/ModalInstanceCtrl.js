@@ -1,0 +1,1 @@
+app.controller('ModalInstanceCtrl', ['OfficeSystemDataFactory', '$uibModalInstance', 'items', ModalInstanceController]);

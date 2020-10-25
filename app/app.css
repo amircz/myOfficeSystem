@@ -1,0 +1,298 @@
+
+.table {
+    margin-top: 2%;
+    margin-bottom: 3vh;
+    direction: rtl;
+
+    width: 58vw;
+}
+
+.col {
+    direction: rtl;
+    text-align: right;
+    height: 10vh;
+    padding-top: 2%;
+}
+
+body {
+    width: 100%;
+}
+
+.row:hover {
+    background-color: #b3d4fc !important;
+}
+
+.row:nth-child(even) {
+    background: #C8F2E4
+}
+
+.row:nth-child(odd) {
+    background: #AFE7F5
+}
+
+.colHead {
+    background-color: black;
+    text-align: right;
+    color: #AFE7F5;
+}
+
+.rowBtn {
+    width: 100%;
+    height: 70%;
+    float: right;
+    background-color: crimson;
+    color: azure;
+    border-radius: 8px;
+    border: none;
+    padding-bottom: 9%;
+    /*margin-top: 13%;*/
+    text-align: center;
+    font-weight: bold;
+}
+
+#updateBtnTxt {
+    font-size: 0.97vw;
+}
+
+#deleteBtnTxt {
+    font-size: 0.99vw;
+}
+
+.btnTd {
+    width: 14%;
+}
+
+ul {
+    text-align: right;
+}
+
+.modal-content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: .3rem;
+    outline: 0;
+    direction: rtl !important;
+    width: 630px;
+    /*height: 76vh;*/
+
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw !important;
+    height: 100vh;
+    background-color: grey !important;
+    opacity: 0.5;
+}
+
+.addBtn {
+    border-radius: 10px;
+    background-color: #007bff8c;
+    color: white;
+    width: 93px;
+    float: right;
+    border: none;
+    text-align: center;
+    /*height: 30px;*/
+    /*margin-top: 5%;*/
+}
+
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100% !important;
+}
+
+.toggleBtn {
+
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 50px;
+    transform: scale(0.4) translateY(-10vh);
+    width: 130px;
+    margin-top: 27%;
+}
+
+.blackBtn {
+    background-color: black;
+}
+
+.redBtn {
+    background-color: red;
+}
+
+#plusBtn {
+    border-radius: 40%;
+    color: white;
+    width: 70px;
+}
+
+input {
+    float: right;
+    display: block;
+    text-align: right;
+}
+
+.tableData {
+    width: 83px;
+}
+
+#dateTxt {
+    direction: ltr !important;
+}
+
+#AddProductsToOrder {
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    overflow-y: auto;
+    direction: ltr;
+}
+
+#ordersTable {
+    margin-right: 3vw;
+    width: 99.9%;
+}
+
+.productInput {
+    width: 75px;
+}
+
+.buttonsTd {
+    text-align: left;
+    transform: translateY(3.8vh);
+    /*padding-bottom: 2%;*/
+}
+
+#productsTable {
+    width: 100%;
+    height: 90%;
+    font-size: xx-large;
+    background-color: white;
+    direction: rtl;
+}
+
+.productAdditionRow {
+    background: white !important;
+}
+
+.productAdditionRow:hover {
+    background-color: white !important;
+}
+
+.modal-header {
+    text-align: center;
+}
+
+.modal-title {
+    width: 100%;
+}
+
+.modal-sm {
+    max-width: 300px;
+    margin-right: 52vw;
+}
+
+ul {
+    font-size: larger;
+}
+
+#pagesNumbersDiv {
+    margin: 0vw 0vw 0vw 47vw;
+    color: blue;
+}
+
+#pageNumber {
+    cursor: pointer;
+}
+
+#cancelBtn {
+    /*transform: translateY(90%);*/
+}
+
+.productName {
+    text-align: center;
+}
+
+select {
+    width: 6vw !important;
+}
+
+.newRow {
+    padding-top: 1%;
+}
+
+#mainTable {
+    display: inline-block;
+    margin-left: 20%;
+}
+
+#sortsAndFilters {
+    float: right;
+    direction: rtl;
+    display: inline-flex;
+    background: black;
+    color: white;
+    width: 100%;
+}
+
+form {
+    direction: rtl;
+}
+
+#filterParagraph {
+    float: right;
+    margin-top: 5px;
+}
+
+.topBarMargin {
+    margin-right: 20px;
+}
+
+label {
+    margin-top: 5px;
+}
+
+.customerTxt {
+    width: 50%;
+    margin-right: 15%;
+}
+
+.sortSelect {
+    width: 10% !important;
+}
+
+#statusSelect {
+    margin-right: 30%;
+}
+
+.ModalSelect {
+    transform: translate3d(-6vh, -4vh, 0);
+}
+
+.labelStyle {
+    float: right;
+    margin-left: 4px;
+}
+
+#dateInput {
+    height: 1.8vw;
+    margin-right: 3px;
+}

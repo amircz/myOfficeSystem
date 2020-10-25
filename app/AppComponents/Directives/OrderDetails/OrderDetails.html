@@ -1,0 +1,8 @@
+<li ng-repeat="property in ['מס הזמנה: '+$ctrl.order.id,'לקוח: '+$ctrl.orderCustomerName,'שווי: '+$ctrl.items[3],'מצב: '+$ctrl.items[4]]">
+    {{property}}
+</li>
+<li>
+    תאריך:
+    <span contenteditable="true" ng-click="isOnEdit=true" ng-model="editableOrderDate">{{$ctrl.order.date}}</span>
+</li>
+<button ng-show="isOnEdit" class="btn-primary">אישור</button>

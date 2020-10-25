@@ -1,0 +1,15 @@
+<div class="row" ng-click="openOrderModal(order)">
+    <div class="col" ng-repeat="detail in orderData">
+        {{detail}}
+    </div>
+    <div class="col btnTd">
+        <button class="rowBtn" id="updateBtnTxt" type="button"
+                ng-click="openSetOrderProductsModal(order,$event)">
+            עדכן מוצרים
+        </button>
+    </div>
+    <div class=" col btnTd">
+        <button class="rowBtn" type="button" ng-click="deleteOrder(order.id,$event)"><span id="deleteBtnTxt">מחק</span>
+        </button>
+    </div>
+</div>

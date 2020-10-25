@@ -1,0 +1,30 @@
+<div class="row newRow" ng-show="isNewRowDetailsShow">
+    <div class="col">
+        <span class="tableData" type="text" id="orderIdTxt">{{orders[orders.length-1].id+1}}</span>
+    </div>
+    <div class="col">
+        <span class="tableData" type="text" id="dateTxt" placeholder="תאריך" ng-bind="currentDate"></span>
+    </div>
+    <div class="col">
+        <select class="tableData" ng-model="selectedStatusId">
+            <option ng-repeat="statusName in allStatusesNames track by $index"
+                    value="{{allStatusesIds[$index]}}">{{statusName}}
+            </option>
+        </select>
+    </div>
+    <div class="col">
+        <select class="tableData" ng-model="selectedCustomerId">
+            <option ng-repeat="customerName in allCustomersNames track by $index"
+                    value="{{allCustomersIds[$index]}}">{{customerName}}
+            </option>
+        </select>
+    </div>
+    <div class="col" ng-bind="newRowValue"></div>
+    <div class="col">
+        <button class="addBtn"
+                ng-click="handleAddingRow($ModalCtrl.open)">
+            בחר מוצרים
+        </button>
+    </div>
+    <div class="col"></div>
+</div>

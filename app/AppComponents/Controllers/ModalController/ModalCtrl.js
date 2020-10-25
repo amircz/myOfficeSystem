@@ -1,0 +1,1 @@
+app.controller('ModalCtrl', ['$rootScope', '$uibModal', ModalController]);

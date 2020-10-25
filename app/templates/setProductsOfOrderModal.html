@@ -1,0 +1,21 @@
+<div id="AddProductsToOrder">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title"> עדכון פריטים להזמנה</h3>
+    </div>
+    <div class="container table" id="productsTable">
+        <div class="row productAdditionRow" ng-repeat="currentProduct in $ctrl.allProducts">
+            <div class="col productName">{{currentProduct.name}}</div>
+            <div class="col">
+                <input ng-model="$ctrl.orderProductsAmountArr[currentProduct.id-1]" class="productInput"
+                       data-productId={{currentProduct.id}} type="number" min="0" max="1000"
+                       onkeypress="return event.charCode >= 48">
+            </div>
+        </div>
+        <div class="row productAdditionRow modal-footer">
+            <div class="buttonsTd">
+                <button class="btn btn-primary" ng-click="$ctrl.setProductsOfOrder()">אישור</button>
+                <button class="btn btn-primary" ng-click="$ctrl.cancelProductsUpdate()">ביטול</button>
+            </div>
+        </div>
+    </div>
+</div>

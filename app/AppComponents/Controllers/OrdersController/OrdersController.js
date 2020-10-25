@@ -1,0 +1,1 @@
+app.controller('OrdersController', ['$scope', '$rootScope', '$http', 'OfficeSystemDataFactory', OrdersController]);

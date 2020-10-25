@@ -1,0 +1,29 @@
+<div id="sortsAndFilters">
+    <label>מיין לפי</label>
+    <select class="form-control sortSelect" ng-model="selectedOrderOption" ng-change="updateOrder()">
+        <option value="{{BY_ID_SORT}}">מס' הזמנה</option>
+        <option value="{{BY_DATE_SORT}}">תאריך</option>
+        <option value="{{BY_VALUE_SORT}}">שווי</option>
+    </select>
+    <p id="filterParagraph" class="topBarMargin">סנן לפי:</p>
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="firstRadio" name="customRadioInline" class="custom-control-input"
+               ng-model="selectedFilterOption" value="customerName">
+        <label class="custom-control-label" for="firstRadio">שם לקוח</label>
+        <input class="form-control customerTxt" ng-readonly="selectedFilterOption !='customerName'"
+               ng-model="filteredCustomerName" type="text" ng-change="updateFilter()">
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="secondRadio" name="customRadioInline" class="custom-control-input"
+               ng-model="selectedFilterOption" value="status">
+        <label class="custom-control-label" for="secondRadio">סטטוס</label>
+        <select ng-disabled="selectedFilterOption!='status'" class="form-control" id="statusSelect"
+                ng-model="filteredStatusId"
+                ng-change="updateFilter()">
+            <option value=""></option>
+            <option ng-repeat="status in statuses" value="{{status.id}}">{{status.name}}</option>
+        </select>
+    </div>
+
+
+</div>

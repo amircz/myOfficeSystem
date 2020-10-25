@@ -1,0 +1,5 @@
+<div id="pagesNumbersDiv">
+    <a ng-repeat="i in createPagesNumberArrayForRepeat() track by $index"
+    ><span ng-click="setCurrentPage(i)" id="pageNumber">{{i+1}}</span>
+    </a>
+</div>
